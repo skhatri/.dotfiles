@@ -1,0 +1,37 @@
+
+[user]
+	name = Suresh Khatri
+	email = servlet@msn.com
+	signingkey = 86C272636200BB3E3290F003104D4141A3259405
+[alias]
+	who = log --oneline --pretty=\"format:%Cred %h %Cblue%an %Cgreen%ar %Cred%s\"
+        all = rev-list --all --oneline --pretty=\"format:%Cgreen e%h %C(blue)%an %C(green)%ar %C(dim white)%s %C(yellow)%d %C(reset)\"
+        history = log --graph --pretty=format:'%Cred%h%Creset -%C(blue)%d%Creset %s %Cgreen(%ar)%Creset' --sparse --date=relative
+  cleanup = clean -dfn
+  cleanupf = clean -df
+  amend = commit --amend --author="user <email>" --no-edit
+  st = status -sb
+  co = checkout
+  br = branch
+  ci = commit
+  unstage = reset HEAD --
+  undo = reset --soft HEAD^
+  discard = checkout --
+  up = pull --rebase --autostash
+  nuke = !git reset --hard HEAD && git clean -df
+  aliases = config --get-regexp ^alias\\.
+
+[core]
+	excludesfile = /Users/skhatri/dev/projects/.tilde/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[init]
+	defaultBranch = main
