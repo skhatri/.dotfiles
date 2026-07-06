@@ -5,7 +5,7 @@
 :set list
 
 :set background=light
-:colorscheme gruvbox
+:colorscheme shine
 
 nmap <D-d> yyp
 nmap <D-y> dd
