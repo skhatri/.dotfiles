@@ -41,8 +41,8 @@ rmdock() {
 	echo "following ${c} images will be removed."
 
 	docker images --format '{{.Repository}}:{{.Tag}} {{.ID}}' | grep "${image}"
-
-	read -p "continue [y/n]?: " ans
+	print -n "continue [y/n]?: "
+	read ans
 	if [[ $ans == "y" ]]; then
 		for a in $(docker images | grep "${image}" | awk '{print $1":"$2}'); do 
 			docker rmi "$a"
